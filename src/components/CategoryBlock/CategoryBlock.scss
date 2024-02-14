@@ -1,0 +1,18 @@
+.nav_category{
+    display: flex;
+    overflow-x: scroll;
+    align-items: center;
+    gap: 1.5rem;
+    &__block{
+        position: relative;
+        
+        &__blocks{
+            position: absolute;
+            p{
+                font-size: 20px;
+                color: rebeccapurple;
+            }
+        }
+    }
+ 
+}
