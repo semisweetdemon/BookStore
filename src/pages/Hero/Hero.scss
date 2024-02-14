@@ -8,6 +8,7 @@
 	}
 	.swiper {
 		position: relative;
+		margin-bottom: 50px;
 		&__arrows {
 			position: absolute;
 			width: 100%;
@@ -33,21 +34,21 @@
 				font-size: 32px;
 			}
 
-			&_left {
-			}
+			// &_left {
+			// }
 
-			&_right {
-			}
+			// &_right {
+			// }
 		}
 
-		&__image {
-		}
+		// &__image {
+		// }
 
 		&__pagination {
 			position: absolute;
 			width: 100%;
 			left: 0;
-			bottom: -20px;
+			bottom: -30px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -57,16 +58,50 @@
 				align-items: center;
 				justify-content: center;
 
-				.dotgray {
-					background: gray;
+				.dotnogray {
+					background: $darkBlue;
 				}
 			}
 
 			&_dot {
 				width: 20px;
 				height: 20px;
-				background-color: $darkBlue;
+				background-color: gray;
 				border-radius: 50%;
+			}
+		}
+	}
+}
+
+.title {
+	font-size: 28px;
+	font-weight: 700;
+	color: $darkBlue;
+}
+
+#herocategory {
+	.herocategory {
+		&__title {
+			margin-bottom: 40px;
+		}
+	}
+}
+
+#advice {
+	.acvice {
+		&__title {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 40px;
+
+			select {
+				width: 200px;
+				padding: 6px;
+				border-radius: 5px;
+				border: 1px solid $darkBlue;
+				outline: none;
+				background: transparent;
 			}
 		}
 	}

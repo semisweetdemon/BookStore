@@ -37,6 +37,13 @@ header {
 				a {
 					color: $white;
 					font-size: 14px;
+					display: flex;
+					flex-direction: column;
+					gap: 5px;
+					align-items: center;
+					ion-icon {
+						font-size: 18px;
+					}
 				}
 			}
 		}

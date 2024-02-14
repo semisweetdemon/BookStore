@@ -1,0 +1,33 @@
+.booksbl {
+	display: grid;
+	width: 100%;
+	grid-template-columns: repeat(5, 20%);
+	justify-content: space-evenly;
+	justify-items: center;
+	row-gap: 20px;
+
+	.bookbl {
+		width: 240px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+
+		&__image {
+			img {
+				width: 100%;
+				height: 284px;
+				object-fit: cover;
+				border-radius: 5px;
+			}
+		}
+
+		&__price {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			h4 {
+				font-size: 24px;
+			}
+		}
+	}
+}

@@ -17,8 +17,14 @@ const Header = () => {
 					<div className="header__nav">
 						<input type="text" placeholder="Search here" />
 						<nav>
-							<NavLink to="/order">Корзина</NavLink>
-							<NavLink to="/admin">Админ</NavLink>
+							<NavLink to="/order">
+								<ion-icon name="cart-outline"></ion-icon>
+								<p>Корзина</p>
+							</NavLink>
+							<NavLink to="/admin">
+								<ion-icon name="person-outline"></ion-icon>
+								<p>Админ</p>
+							</NavLink>
 						</nav>
 					</div>
 				</div>
