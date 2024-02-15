@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import BooksBlock from '../../components/BooksBlock/BooksBlock';
+import CategoryBlock from '../../components/CategoryBlock/CategoryBlock';
 import { useMainContext } from '../../mainContext/MainContext';
 
 const Hero = () => {
@@ -85,6 +86,7 @@ const Hero = () => {
 						<div className="herocategory__title title">
 							<h2>Категории</h2>
 						</div>
+						<CategoryBlock />
 					</div>
 				</div>
 			</section>

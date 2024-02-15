@@ -1,0 +1,18 @@
+.category-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__navlist{
+        display: flex;
+        gap: 5px;
+        p{
+            color: #757575;
+        }
+        span{
+            color: #000F35;
+        }
+    }
+    select{
+        padding: 5px;
+    }
+}
