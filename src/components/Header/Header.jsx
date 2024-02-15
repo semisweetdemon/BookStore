@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { useMainContext } from '../../mainContext/MainContext';
 
 const Header = () => {
 	const navigate = useNavigate();
-
+	const {getPass, open, setOpen} = useMainContext()
 	return (
 		<header id="header">
 			<div className="container">
@@ -18,7 +20,7 @@ const Header = () => {
 						<input type="text" placeholder="Search here" />
 						<nav>
 							<NavLink to="/order">Корзина</NavLink>
-							<NavLink to="/admin">Админ</NavLink>
+							<NavLink  onClick={() => setOpen(true )}>Админ</NavLink>
 						</nav>
 					</div>
 				</div>

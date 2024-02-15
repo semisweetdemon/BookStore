@@ -9,7 +9,8 @@ const MainContext = ({ children }) => {
 
 
 const [admin, setAdmin] = useState([])
-
+const [off, setOff] = useState(false)
+const [open, setOpen] = useState(false)
 const  navigate = useNavigate()
 
 
@@ -41,15 +42,25 @@ function getSave() {
 	navigate('/')
 }
 
+
+
+const password = 'MoutionWeb!'
+function getPass() {
+	const data = JSON.parse(localStorage.getItem('book')) || []
+	
+}
+
 	let values = {
 		admin, setAdmin,
-		
+		open, setOpen,
+
 	  image,	setImage,
 		name, setName,
 		category, setCategory,
 		price, setPrice,
 		discriotion, setDiscriotion,
-
+		
+		getPass,
 		getSave,
 	};
 

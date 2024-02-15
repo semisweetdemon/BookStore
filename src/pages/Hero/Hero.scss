@@ -1,5 +1,64 @@
 #hero {
 	.hero {
+		.admin {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			&__password {
+				max-width: 897px;
+				width: 100%;
+				height: 463px;
+				background-color: #FFF;
+				position: relative;
+				.btnsClose {
+					width: 100%;
+					display: flex;
+					align-items: flex-start;
+					justify-content: flex-end;
+					button {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						background-color: transparent;
+						border: transparent;
+						width: 40px;
+						height: 40px;
+						ion-icon {
+							color: #000;
+							width: 40px;
+							height: 40px;
+							font-size: 18px;
+						}
+					}
+				}
+				
+				.drivePassword {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex-direction: column;
+					gap: 50px;
+					input {
+						margin-top: 55px;
+						padding: 0 15px;
+						max-width: 586px;
+						width: 100%;
+						height: 71px;
+						border: 3px solid $darkBlue;
+						border-radius: 5px;
+					}
+					button {
+						width: 321px;
+						height: 51px;
+						border: 3px solid $darkBlue;
+						border-radius: 5px;
+						background-color: $darkBlue;
+						color: #FFF;
+
+					}
+				}
+			}
+		}
 		&__swiper {
 			width: 100%;
 			height: 520px;
