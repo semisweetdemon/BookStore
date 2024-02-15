@@ -1,7 +1,8 @@
 import { NavLink, useNavigate } from 'react-router-dom';
+import { useMainContext } from '../../mainContext/MainContext';
 
 const Header = () => {
-	const navigate = useNavigate();
+	const { navigate } = useMainContext();
 
 	return (
 		<header id="header">

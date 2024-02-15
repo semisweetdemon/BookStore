@@ -4,13 +4,16 @@ import Order from '../pages/Order/Order';
 import Book from '../pages/Book/Book';
 import Category from '../pages/Category/Category';
 import Hero from '../pages/Hero/Hero';
+import { useMainContext } from '../mainContext/MainContext';
 
 const MainRouter = () => {
+	const { idBook } = useMainContext();
+
 	let pages = [
 		{ path: '/', element: <Hero />, key: 1 },
 		{ path: '/admin', element: <Admin />, key: 2 },
 		{ path: '/order', element: <Order />, key: 3 },
-		{ path: '/book', element: <Book />, key: 4 },
+		{ path: `/${idBook}`, element: <Book />, key: 4 },
 		{ path: '/category', element: <Category />, key: 5 },
 	];
 
