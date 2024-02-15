@@ -9,46 +9,43 @@ const MainContext = ({ children }) => {
 
 
 const [admin, setAdmin] = useState([])
-const [off, setOff] = useState(false)
 const [open, setOpen] = useState(false)
 const  navigate = useNavigate()
 
+const [file, setFile] = useState('')
 
 const [image, setImage] = useState('')
 const [name, setName] = useState('')
 const [category, setCategory] = useState('')
 const [price, setPrice] = useState('')
-const [discriotion, setDiscriotion] = useState('')
+const [discription, setDiscription] = useState('')
 
 function getSave() {
 	let obj = {
-		image,
+		file,
 		name,
 		category,
 		price,
-		discriotion,
+		discription,
 		id: Date.now(),
 	}
+	const book = JSON.parse(localStorage.getItem('category')) || []
+	if (book.includes(category) !== true) {
+		book.push(category)
+	}
+	localStorage.setItem('category', JSON.stringify(book))
 	const data = JSON.parse(localStorage.getItem('book')) || []
 	data.push(obj)
 	localStorage.setItem('book', JSON.stringify(data))
 	
-	setImage('')
+	setFile('')
 	setName('')
 	setCategory('')
 	setPrice('')
-	setDiscriotion('')
-
+	setDiscription('')
 	navigate('/')
 }
 
-
-
-const password = 'MoutionWeb!'
-function getPass() {
-	const data = JSON.parse(localStorage.getItem('book')) || []
-	
-}
 
 	let values = {
 		admin, setAdmin,
@@ -58,9 +55,8 @@ function getPass() {
 		name, setName,
 		category, setCategory,
 		price, setPrice,
-		discriotion, setDiscriotion,
-		
-		getPass,
+		discription, setDiscription,
+		file, setFile,
 		getSave,
 	};
 

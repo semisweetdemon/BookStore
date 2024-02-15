@@ -1,10 +1,9 @@
-import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useMainContext } from '../../mainContext/MainContext';
 
 const Header = () => {
 	const navigate = useNavigate();
-	const {getPass, open, setOpen} = useMainContext()
+	const { setOpen} = useMainContext()
 	return (
 		<header id="header">
 			<div className="container">
