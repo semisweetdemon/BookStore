@@ -6,7 +6,8 @@ export const useMainContext = () => useContext(mainContext);
 
 const MainContext = ({ children }) => {
 	const [admin, setAdmin] = useState([]);
-
+	const [off, setOff] = useState(false);
+	const [open, setOpen] = useState(false);
 	const navigate = useNavigate();
 
 	const [image, setImage] = useState('');
@@ -42,6 +43,8 @@ const MainContext = ({ children }) => {
 	let values = {
 		admin,
 		setAdmin,
+		open,
+		setOpen,
 
 		image,
 		setImage,

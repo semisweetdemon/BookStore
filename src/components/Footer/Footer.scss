@@ -1,0 +1,75 @@
+footer {
+	background-color: $darkBlue;
+	.footer {
+		padding: 40px 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 20px;
+		color: $white;
+
+		h3,
+		a {
+			font-size: 18px;
+		}
+
+		a {
+			color: $white;
+		}
+
+		> div {
+			max-width: 300px;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		&__logo {
+			justify-content: center;
+		}
+
+		&__about {
+			&_shop {
+				gap: 30px;
+			}
+
+			&_company {
+				gap: 30px;
+			}
+		}
+
+		&__social {
+			gap: 15px;
+			&_icons {
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				gap: 10px;
+
+				a {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					background-color: $white;
+					width: 24px;
+					height: 24px;
+					border-radius: 5px;
+				}
+
+				ion-icon {
+					font-size: 18px;
+					color: $darkBlue;
+				}
+			}
+		}
+
+		&__adress {
+			gap: 15px;
+
+			p {
+				font-size: 14px;
+			}
+		}
+	}
+}

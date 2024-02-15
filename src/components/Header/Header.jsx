@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useMainContext } from '../../mainContext/MainContext';
 
 const Header = () => {
-	const { navigate } = useMainContext();
+	const { navigate, setOpen } = useMainContext();
 
 	return (
 		<header id="header">
@@ -22,7 +23,7 @@ const Header = () => {
 								<ion-icon name="cart-outline"></ion-icon>
 								<p>Корзина</p>
 							</NavLink>
-							<NavLink to="/admin">
+							<NavLink onClick={() => setOpen(true)}>
 								<ion-icon name="person-outline"></ion-icon>
 								<p>Админ</p>
 							</NavLink>
