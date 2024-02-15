@@ -4,22 +4,26 @@ $white: #ffffff;
 $adminBackground: #f4f5f9;
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .container {
-	max-width: 1440px;
-	width: 100%;
-	padding: 0 20px;
-	margin: 0 auto;
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 body {
-	font-family: sans-serif;
+  font-family: sans-serif;
+}
+
+button {
+  border: none;
 }

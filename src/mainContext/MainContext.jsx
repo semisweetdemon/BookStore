@@ -27,6 +27,8 @@ function getSave() {
 		price,
 		discriotion,
 		id: Date.now(),
+		navigate,
+		
 	}
 	const data = JSON.parse(localStorage.getItem('book')) || []
 	data.push(obj)
