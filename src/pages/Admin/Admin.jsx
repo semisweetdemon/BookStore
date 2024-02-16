@@ -5,12 +5,13 @@ const Admin = () => {
 	const { getSave, image, setFile, file, name, setName, category, setCategory, price, setPrice, discription, setDiscription } = useMainContext();
 
 	function handleFileInp(e) {
-		let file = e.target.files[0];
-		if (file) {
-			let image = URL.createObjectURL(file);
-			setFile(image);
+		let files = e.target.files[0];
+		if (files) {
+			// let image =;
+			setFile(URL.createObjectURL(files));
 		}
 	}
+	console.log('file', file); 	
 
 	return (
 		<section id="admin">

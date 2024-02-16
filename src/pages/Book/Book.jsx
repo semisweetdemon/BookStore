@@ -6,7 +6,6 @@ const Book = () => {
 
 
 	console.log(bookInfo);
-
 	return (
 		<section id="book">
 			<div className="container">

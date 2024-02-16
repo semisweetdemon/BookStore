@@ -2,7 +2,6 @@ import { useMainContext } from '../../mainContext/MainContext';
 
 const BooksBlock = ({ books }) => {
 	const { navigate, setIdBook, setBookInfo } = useMainContext();
-
 	return (
 		<div className="booksbl">
 			{books.map((el) => (

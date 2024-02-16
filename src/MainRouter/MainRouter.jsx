@@ -11,7 +11,7 @@ const MainRouter = () => {
 
 	let pages = [
 		{ path: '/', element: <Hero />, key: 1 },
-		{ path: '/admin', element: <Admin />, key: 2 },
+		{ path: '/admin/:id', element: <Admin />, key: 2 },
 		{ path: '/order', element: <Order />, key: 3 },
 		{ path: `/${idBook}`, element: <Book />, key: 4 },
 		{ path: '/category', element: <Category />, key: 5 },
