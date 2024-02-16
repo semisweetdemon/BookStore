@@ -1,0 +1,116 @@
+#book {
+	.book {
+		&__navigate {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 10px;
+			margin: 20px 0;
+
+			p {
+				cursor: pointer;
+			}
+		}
+
+		&__image {
+			width: 430px;
+			height: 630px;
+		}
+
+		&__info {
+			display: flex;
+			gap: 30px;
+			margin-bottom: 30px;
+		}
+	}
+
+	.info {
+		color: $darkBlue;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		min-height: 630px;
+		height: 100%;
+
+		> div {
+			flex: 1 0 auto;
+			&:last-child {
+				flex: 0 1 auto;
+			}
+		}
+
+		&__title {
+			font-size: 36px;
+			font-weight: 600;
+			line-height: 49px;
+			text-align: left;
+		}
+
+		&__price {
+			font-size: 36px;
+			font-weight: 600;
+			line-height: 49px;
+			text-align: left;
+			margin: 10px 0 30px 0;
+		}
+
+		&__category {
+			font-size: 24px;
+			font-weight: 600;
+			line-height: 33px;
+		}
+
+		&__counter {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			margin: 30px 0;
+			button {
+				width: 24px;
+				height: 24px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border: none;
+				outline: none;
+				background: transparent;
+
+				&:first-child,
+				&:last-child {
+					background: $darkBlue;
+					color: $white;
+				}
+
+				&:nth-child(2) {
+					border-color: $darkBlue;
+					border-top: 1px solid;
+					border-bottom: 1px solid;
+				}
+			}
+		}
+
+		&__description {
+			margin-top: 30px;
+			h3 {
+				font-size: 18px;
+				margin-bottom: 10px;
+			}
+			p {
+				font-size: 14px;
+			}
+		}
+
+		&__buttons {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			button {
+				width: 270px;
+				height: 50px;
+				border-radius: 5px;
+				border: 2px solid $darkBlue;
+				background: transparent;
+			}
+		}
+	}
+}

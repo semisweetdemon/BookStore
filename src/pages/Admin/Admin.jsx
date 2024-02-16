@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { useMainContext } from '../../mainContext/MainContext';
 
 const Admin = () => {
-	const { getSave, image, setFile, file, name, setName, category, setCategory, price, setPrice, discription, setDiscription } = useMainContext();
+	const { getSave, setFile, file, name, setName, category, setCategory, price, setPrice, discription, setDiscription } = useMainContext();
 
 	function handleFileInp(e) {
-		let file = e.target.files[0];
-		if (file) {
-			let image = URL.createObjectURL(file);
-			setFile(image);
+		let files = e.target.files[0];
+
+		if (files) {
+			setFile(URL.createObjectURL(files));
 		}
 	}
 
@@ -18,7 +18,7 @@ const Admin = () => {
 				<div className="admin">
 					<div className="admin__block">
 						<label style={{ display: file ? 'none' : '' }}>
-							<input onChange={handleFileInp} type="file" placeholder="Upload photo" value={image} />
+							<input onChange={handleFileInp} type="file" placeholder="Upload photo" />
 						</label>
 						<img style={{ display: file ? '' : 'none' }} src={file} alt="" />
 						<div className="form">

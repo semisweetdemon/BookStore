@@ -1,15 +1,12 @@
 import { useEffect, useState } from 'react';
 import BooksBlock from '../../components/BooksBlock/BooksBlock';
-import CategoryBlock from '../../components/CategoryBlock/CategoryBlock';
 import { useMainContext } from '../../mainContext/MainContext';
+import CategoryBlock from '../../components/CategoryBlock/CategoryBlock';
 
 const Hero = () => {
 	const { navigate, open, setOpen } = useMainContext();
 	const [count, setCount] = useState(0);
-	const [values, setValues] = useState('');
 	let swiperImages = ['https://images.unsplash.com/photo-1707345512638-997d31a10eaa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'];
-
-	let data = JSON.parse(localStorage.getItem('book')) || [];
 
 	useEffect(() => {
 		setInterval(() => {
@@ -29,31 +26,11 @@ const Hero = () => {
 		);
 	}
 
-	const pass = 'MotionWeb2024!';
 	return (
 		<>
 			<section id="hero">
 				<div className="container">
 					<div className="hero">
-						<div
-							className="hero__admin"
-							style={{
-								display: !open ? 'none' : '',
-							}}>
-							<div className="hero__admin_password">
-								<button onClick={() => setOpen(false)}>
-									<ion-icon name="close-outline"></ion-icon>
-								</button>
-								<input onChange={(e) => setValues(e.target.value)} type="password" placeholder="Password..." />
-								<button
-									onClick={() => {
-										pass === values ? navigate('/admin') : alert('error');
-										setOpen(false);
-									}}>
-									SIGN IN
-								</button>
-							</div>
-						</div>
 						<div className="hero__swiper swiper">
 							<div className="swiper__arrows">
 								<div
@@ -84,7 +61,9 @@ const Hero = () => {
 				<div className="container">
 					<div className="herocategory">
 						<div className="herocategory__title title">
-							<h2>Категории</h2>
+							<h2 onClick={() => navigate('/category')} style={{ cursor: 'pointer' }}>
+								Категории
+							</h2>
 						</div>
 						<CategoryBlock />
 					</div>
@@ -102,7 +81,7 @@ const Hero = () => {
 							</select>
 						</div>
 						<div className="advice__books">
-							<BooksBlock books={data} />
+							<BooksBlock />
 						</div>
 					</div>
 				</div>

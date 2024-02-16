@@ -1,11 +1,22 @@
+import { useEffect, useState } from 'react';
 import { useMainContext } from '../../mainContext/MainContext';
 
-const BooksBlock = ({ books }) => {
+const BooksBlock = () => {
 	const { navigate, setIdBook, setBookInfo } = useMainContext();
+	const [books, setBooks] = useState();
+
+	function getBooks() {
+		let book = JSON.parse(localStorage.getItem('book')) || [];
+		setBooks(book);
+	}
+
+	useEffect(() => {
+		getBooks();
+	}, []);
 
 	return (
 		<div className="booksbl">
-			{books.map((el) => (
+			{books?.map((el) => (
 				<div
 					className="bookbl"
 					onClick={() => {

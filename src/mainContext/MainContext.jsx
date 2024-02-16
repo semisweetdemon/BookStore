@@ -29,8 +29,8 @@ const MainContext = ({ children }) => {
 		const book = JSON.parse(localStorage.getItem('category')) || [];
 		if (book.includes(category) !== true) {
 			book.push(category);
+			localStorage.setItem('category', JSON.stringify(book));
 		}
-		localStorage.setItem('category', JSON.stringify(book));
 		const data = JSON.parse(localStorage.getItem('book')) || [];
 		data.push(obj);
 		localStorage.setItem('book', JSON.stringify(data));
