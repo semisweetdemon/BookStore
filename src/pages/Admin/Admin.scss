@@ -5,6 +5,7 @@
 		align-items: center;
 		justify-content: center;
 		&__block {
+			margin: 50px;
 			width: 949px;
 			height: 685px;
 			background-color: #fff;
@@ -19,6 +20,7 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
+				flex-direction: column;
 				top: 0;
 				bottom: 0;
 				right: 0;
@@ -28,6 +30,14 @@
 					width: 321.35px;
 					height: 60px;
 					padding: 0 15px;
+				}
+				ion-icon {
+					font-size: 36px;
+					color: #575757;
+				}
+				h3 {
+					color:#01004980;
+					;
 				}
 			}
 			img {

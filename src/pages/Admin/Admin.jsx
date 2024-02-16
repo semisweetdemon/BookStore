@@ -19,6 +19,10 @@ const Admin = () => {
 					<div className="admin__block">
 						<label style={{ display: file ? 'none' : '' }}>
 							<input onChange={handleFileInp} type="file" placeholder="Upload photo" value={image} />
+							<ion-icon name="image-outline"></ion-icon>
+							<h3>
+								Upload photo
+							</h3>
 						</label>
 						<img style={{ display: file ? '' : 'none' }} src={file} alt="" />
 						<div className="form">

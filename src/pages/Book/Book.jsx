@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { useMainContext } from '../../mainContext/MainContext';
 
 const Book = () => {
-	const { bookInfo } = useMainContext();
+	const { bookInfo, name, setName, category, setCategory, price, setPrice, discription, setDiscription, file, setFile, idBook, setIdBook, } = useMainContext();
+
 
 	console.log(bookInfo);
 
@@ -13,6 +15,12 @@ const Book = () => {
 						<p>
 							Главная / {bookInfo.category} / {bookInfo.name}
 						</p>
+					</div>
+					<div className="book__card">
+						<div className="book__img">
+							{/* <img src={el.file} alt="" /> */}
+						</div>
+						{/* <h1>{el.}</h1> */}
 					</div>
 				</div>
 			</div>
