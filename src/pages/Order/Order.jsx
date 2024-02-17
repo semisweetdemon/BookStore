@@ -1,8 +1,8 @@
-import { NavLink } from 'react-router-dom';
 import { useMainContext } from '../../mainContext/MainContext';
 
 const Order = () => {
 	const { navigate } = useMainContext();
+
 	return (
 		<section id="order">
 			<div className="container">

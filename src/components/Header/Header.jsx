@@ -18,6 +18,7 @@ const Header = () => {
 					<div className="header__nav">
 						<input type="text" placeholder="Search here" />
 						<nav>
+							<NavLink to='/category'>Category</NavLink>
 							<NavLink to="/order">
 								<ion-icon name="cart-outline"></ion-icon>
 								<p>Корзина</p>
