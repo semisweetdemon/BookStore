@@ -65,11 +65,10 @@ const MainContext = ({ children }) => {
 	}
 
 	function getOrder(x) {
-		console.log(x.id);
 		let getOrderData = JSON.parse(localStorage.getItem('order')) || [];
 
 		if (getOrderData.length > 0) {
-			getOrderData.map((el) => (el.id === x.id ? (el.count += 1) : getOrderData.push(x)));
+			getOrderData.map((el) => (el.id === x.id ? (el.count = x.count) : getOrderData.push(x)));
 		} else {
 			getOrderData.push(x);
 		}

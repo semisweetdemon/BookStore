@@ -29,7 +29,22 @@ function App() {
 					<button onClick={() => setOpen(false)}>
 						<ion-icon name="close-outline"></ion-icon>
 					</button>
-					<input onChange={(e) => setValues(e.target.value)} type="password" placeholder="Password..." />
+					<input
+						onKeyDown={(e) => {
+							if (e.key === 'Enter') {
+								setValues(e.target.value);
+								if (pass === values) {
+									navigate('/admin');
+									setOpen(false);
+								} else {
+									alert('error');
+								}
+							}
+						}}
+						onChange={(e) => setValues(e.target.value)}
+						type="password"
+						placeholder="Password..."
+					/>
 					<button
 						onClick={() => {
 							pass === values ? navigate('/admin') : alert('error');
