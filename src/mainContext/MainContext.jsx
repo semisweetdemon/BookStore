@@ -68,7 +68,7 @@ const MainContext = ({ children }) => {
 		console.log(x.id);
 		let getOrderData = JSON.parse(localStorage.getItem('order')) || [];
 
-		if (getOrderData.length >= 1) {
+		if (getOrderData.length > 0) {
 			getOrderData.map((el) => (el.id === x.id ? (el.count += 1) : getOrderData.push(x)));
 		} else {
 			getOrderData.push(x);
