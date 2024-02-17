@@ -11,20 +11,21 @@ function App() {
 	const [values, setValues] = useState('');
 
 	return (
-		<div className="app">
+		<div className="App">
+			<Header />
 			<div
 				onClick={() => setOpen(false)}
-				className="app__bgwhite"
+				className="App__bgwhite"
 				style={{
 					display: !open ? 'none' : '',
 				}}></div>
 
 			<div
-				className="app__admin"
+				className="App__admin"
 				style={{
 					display: !open ? 'none' : '',
 				}}>
-				<div className="app__admin_password">
+				<div className="App__admin_password">
 					<button onClick={() => setOpen(false)}>
 						<ion-icon name="close-outline"></ion-icon>
 					</button>
@@ -38,8 +39,7 @@ function App() {
 					</button>
 				</div>
 			</div>
-			<div className="app__wrap">
-				<Header />
+			<div className="App__wrap">
 				<MainRouter />
 			</div>
 			<Footer />

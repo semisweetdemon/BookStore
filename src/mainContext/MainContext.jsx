@@ -24,6 +24,7 @@ const MainContext = ({ children }) => {
 			category,
 			price,
 			discription,
+			count: 1,
 			id: Date.now(),
 		};
 		const book = JSON.parse(localStorage.getItem('category')) || [];
@@ -42,6 +43,38 @@ const MainContext = ({ children }) => {
 		setDiscription('');
 
 		navigate('/');
+	}
+
+	function plusCount(id) {
+		let data = JSON.parse(localStorage.getItem('book')) || [];
+		data.map((el) => {
+			if (el.id === id) {
+				el.count += 1;
+			}
+		});
+		localStorage.setItem('book', JSON.stringify(data));
+	}
+	function minusCount(id) {
+		let data = JSON.parse(localStorage.getItem('book')) || [];
+		data.map((el) => {
+			if (el.id === id) {
+				return el.count <= 0 ? 0 : (el.count -= 1);
+			}
+		});
+		localStorage.setItem('book', JSON.stringify(data));
+	}
+
+	function getOrder(x) {
+		console.log(x.id);
+		let getOrderData = JSON.parse(localStorage.getItem('order')) || [];
+
+		if (getOrderData.length >= 1) {
+			getOrderData.map((el) => (el.id === x.id ? (el.count += 1) : getOrderData.push(x)));
+		} else {
+			getOrderData.push(x);
+		}
+
+		localStorage.setItem('order', JSON.stringify(getOrderData));
 	}
 
 	let values = {
@@ -67,6 +100,10 @@ const MainContext = ({ children }) => {
 		navigate,
 		bookInfo,
 		setBookInfo,
+
+		plusCount,
+		minusCount,
+		getOrder,
 	};
 
 	return <mainContext.Provider value={values}>{children}</mainContext.Provider>;

@@ -27,19 +27,6 @@ body {
 	height: 100%;
 }
 
-.app {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-}
-
-#book,
-#admin,
-#hero,
-#category {
-	flex: 1 0 auto;
-}
-
 body {
 	font-family: sans-serif;
 }
@@ -48,10 +35,11 @@ button {
 	border: none;
 }
 
-.app {
+.App {
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	height: 100%;
 
 	&__wrap {
 		min-height: 630px;

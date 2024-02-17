@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useMainContext } from '../../mainContext/MainContext';
 
 const BooksBlock = () => {
-	const { navigate, setIdBook, setBookInfo } = useMainContext();
+	const { navigate, setIdBook } = useMainContext();
 	const [books, setBooks] = useState();
 
 	function getBooks() {
@@ -22,7 +22,6 @@ const BooksBlock = () => {
 					onClick={() => {
 						setIdBook(el.id);
 						navigate(`/${el.id}`);
-						setBookInfo(el);
 					}}>
 					<div className="bookbl__image">
 						<img src={el.file} alt="No image" />

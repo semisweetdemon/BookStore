@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useMainContext } from '../../mainContext/MainContext';
 
 const Admin = () => {
@@ -11,6 +10,7 @@ const Admin = () => {
 			setFile(URL.createObjectURL(files));
 		}
 	}
+	console.log('file', file);
 
 	return (
 		<section id="admin">
@@ -19,6 +19,8 @@ const Admin = () => {
 					<div className="admin__block">
 						<label style={{ display: file ? 'none' : '' }}>
 							<input onChange={handleFileInp} type="file" placeholder="Upload photo" />
+							<ion-icon name="image-outline"></ion-icon>
+							<h3>Upload photo</h3>
 						</label>
 						<img style={{ display: file ? '' : 'none' }} src={file} alt="" />
 						<div className="form">
@@ -27,7 +29,7 @@ const Admin = () => {
 								<input onChange={(e) => setCategory(e.target.value)} type="text" placeholder="Product Category" value={category} />
 								<input onChange={(e) => setPrice(e.target.value)} type="text" placeholder="Price" value={price} />
 							</div>
-							<input onChange={(e) => setDiscription(e.target.value)} type="text" placeholder="Product description..." value={discription} />
+							<textarea onChange={(e) => setDiscription(e.target.value)} type="text" placeholder="Product description..." value={discription} />
 							<button onClick={() => getSave()}>SAVE</button>
 						</div>
 					</div>

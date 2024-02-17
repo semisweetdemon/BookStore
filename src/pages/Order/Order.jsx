@@ -6,12 +6,11 @@ const Order = () => {
 	return (
 		<section id="order">
 			<div className="container">
+				<div className="order__header">
+					<p onClick={() => navigate('/')}>Главная / </p>
+					<p> Оформление заказа </p>
+				</div>
 				<div className="order">
-					{/* <div className="order__header">
-          <NavLink onClick={() => navigate("/")}>Главная / </NavLink>
-          <NavLink onClick={() => navigate("/order")}>Корзина / </NavLink>
-          <NavLink onClick={() => navigate("/")}>Оформление заказа </NavLink>
-        </div> */}
 					<div className="order__contact">
 						<div className="order__contact_info">
 							<h2>Контакные данные</h2>

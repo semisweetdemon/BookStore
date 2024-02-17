@@ -1,9 +1,17 @@
+import { useEffect } from 'react';
 import { useMainContext } from '../../mainContext/MainContext';
 
 const Book = () => {
-	const { bookInfo, navigate } = useMainContext();
+	const { bookInfo, setBookInfo, idBook, navigate, plusCount, minusCount, getOrder } = useMainContext();
 
-	console.log(bookInfo);
+	function getItem(n) {
+		let data = JSON.parse(localStorage.getItem('book')) || [];
+		setBookInfo(data.find((el) => el.id === n));
+	}
+
+	useEffect(() => {
+		getItem(idBook);
+	});
 
 	return (
 		<section id="book">
@@ -22,16 +30,26 @@ const Book = () => {
 						<p>{bookInfo.name}</p>
 					</div>
 					<div className="book__info">
-						<div className="book__image"></div>
+						<div className="book__boba"></div>
 						<div className="info">
 							<div>
-								<div className="info__title">{bookInfo.name}</div>
-								<div className="info__price">{bookInfo.price} $</div>
-								<div className="info__category">Жанр: {bookInfo.category}</div>
+								<h3 className="info__title">{bookInfo.name}</h3>
+								<h3 className="info__price">{bookInfo.price} $</h3>
+								<h4 className="info__category">Жанр: {bookInfo.category}</h4>
 								<div className="info__counter">
-									<button>-</button>
-									<button>1</button>
-									<button>+</button>
+									<button
+										onClick={() => {
+											minusCount(bookInfo.id);
+										}}>
+										-
+									</button>
+									<button>{bookInfo.count}</button>
+									<button
+										onClick={() => {
+											plusCount(bookInfo.id);
+										}}>
+										+
+									</button>
 								</div>
 								<div className="info__description">
 									<h3>Описание</h3>
@@ -39,7 +57,12 @@ const Book = () => {
 								</div>
 							</div>
 							<div className="info__buttons">
-								<button>Добавить в корзину</button>
+								<button
+									onClick={() => {
+										getOrder(bookInfo);
+									}}>
+									Добавить в корзину
+								</button>
 								<button>Сделать заказ</button>
 							</div>
 						</div>
