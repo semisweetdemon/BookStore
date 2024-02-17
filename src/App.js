@@ -4,10 +4,10 @@ import MainRouter from './MainRouter/MainRouter';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import { useMainContext } from './mainContext/MainContext';
+const passw = 'MotionWeb2024!';
 
 function App() {
-	const { open, setOpen, navigate } = useMainContext();
-	const pass = 'MotionWeb2024!';
+	const { open, setOpen, navigate, pass, setPass } = useMainContext();
 	const [values, setValues] = useState('');
 
 	return (
@@ -24,6 +24,7 @@ function App() {
 				className="App__admin"
 				style={{
 					display: !open ? 'none' : '',
+
 				}}>
 				<div className="App__admin_password">
 					<button onClick={() => setOpen(false)}>
@@ -33,7 +34,7 @@ function App() {
 						onKeyDown={(e) => {
 							if (e.key === 'Enter') {
 								setValues(e.target.value);
-								if (pass === values) {
+								if (passw === values) {
 									navigate('/admin');
 									setOpen(false);
 								} else {
@@ -46,8 +47,12 @@ function App() {
 						placeholder="Password..."
 					/>
 					<button
-						onClick={() => {
-							pass === values ? navigate('/admin') : alert('error');
+						onClick={() => {if  (pass === values) {
+							setPass(!pass)
+							
+							localStorage.setItem('pass', JSON.stringify(!pass))
+						}
+							passw === values ? navigate('/admin') : alert('error');
 							setOpen(false);
 						}}>
 						SIGN IN
