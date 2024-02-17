@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom";
 import { useMainContext } from "../../mainContext/MainContext";
 import { useEffect, useState } from "react";
 
 const Order = () => {
   const { navigate } = useMainContext();
 
-  const [order, setOrder] = useState();
+  const [order, setOrder] = useState([]);
+  const [delivery, setDelivery] = useState(false);
 
   function getBasket() {
     let ord = JSON.parse(localStorage.getItem("order")) || [];
@@ -69,16 +69,45 @@ const Order = () => {
             <div className="order__dostavks_info">
               <h2>Доставка</h2>
               <p>Выберите удобный способ доставки для этого заказа.</p>
-              <label htmlFor="samovyzov">
+              <label
+                htmlFor="samovyzov"
+                onClick={() => {
+                  setDelivery(true);
+                }}>
                 <input type="radio" id="samovyzov" name="dos" />
                 Самовывоз
               </label>
-              <label htmlFor="kurer">
-                <input type="radio" id="kurer" name="dos" />
+              <label
+                htmlFor="kurer"
+                onClick={() => {
+                  setDelivery(false);
+                }}>
+                <input checked type="radio" id="kurer" name="dos" />
                 Доставка курьером
               </label>
-              <textarea 
-                style={{ padding: "10px", resize: "none" }}
+              <select
+                style={{
+                  display: delivery ? "block" : "none",
+                }}
+                name=""
+                id="">
+                <option checked value="">
+                  Biskek
+                </option>
+                <option value="">Osh</option>
+                <option value="">Batket</option>
+                <option value="">Jalal-Abat</option>
+                <option value="">Ysyk-Kol</option>
+                <option value="">Chuy</option>
+                <option value="">Naryn</option>
+                <option value="">Talas</option>
+              </select>
+              <textarea
+                style={{
+                  display: delivery ? "none" : "block",
+                  padding: "10px",
+                  resize: "none",
+                }}
                 name=""
                 id=""
                 cols="35"
