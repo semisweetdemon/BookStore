@@ -21,7 +21,12 @@ const CategoryBlock = () => {
   return (
     <div className="nav__categoryall">
       {categorieses.map((el)=> (
-        <div className="nav__category" onClick={()=> categoryClick(el)}>{el}</div>
+        <div className="nav__category" onClick={()=> categoryClick(el)}>
+         <div className='nav__category__textIcon'>
+         <h2>{el}</h2>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+         </div>
+        </div>
       ))}
     </div>
   );
