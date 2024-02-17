@@ -1,18 +1,23 @@
 import detective from "../../assets/image/detec.png";
+import { useState, useEffect } from 'react';
 
 const CategoryBlock = () => {
+  const [categorieses,setCategorieses] = useState([])
+  const sort = JSON.parse(localStorage.getItem('category')) || [];
+
+  function getCategory(){
+    setCategorieses(sort)
+  }
+
+  useEffect(()=> {
+    getCategory()
+  },[])
+
   return (
     <div className="nav__categoryall">
-      <div className="nav__category">
-        <div className="nav__category_image">
-          <div></div>
-          <img src={detective} alt="" />
-        </div>
-        <div className="nav__category_text">
-          <p>Детектив</p>
-          <ion-icon name="arrow-forward-outline"></ion-icon>
-        </div>
-      </div>
+      {categorieses.map((el)=> (
+        <div>{el}</div>
+      ))}
     </div>
   );
 };

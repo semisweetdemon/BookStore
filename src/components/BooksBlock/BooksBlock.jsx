@@ -20,6 +20,10 @@ const BooksBlock = ({ books }) => {
 						<h4>{el.price}</h4>
 						<ion-icon name="cart-outline"></ion-icon>
 					</div>
+					<div className="bookbl__text">
+						<h5>{el.name}  /</h5>
+						<h5>{el.discription}</h5>
+					</div>
 				</div>
 			))}
 		</div>
