@@ -3,17 +3,28 @@
   overflow-x: scroll;
   align-items: center;
   gap: 1.5rem;
+  margin-bottom: 20px;
   .nav__category {
     width: 250px;
     height: 200px;
     background-color: #010049;
-    position: relative;
     cursor: pointer;
     color: white;
-    font-size: 25px;
-    text-align: center;
-    padding-top: 25px;
+    border-radius: 13px;
+    position: relative;
 
+    &__textIcon{
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      bottom: 20px;
+      left: 20px;
+      font-weight: bold;
+      ion-icon{
+        font-size: 30px;
+      }
+    }
 
     &_image {
       position: relative;
