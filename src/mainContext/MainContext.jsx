@@ -17,6 +17,8 @@ const MainContext = ({ children }) => {
 	const [idBook, setIdBook] = useState(0);
 	const [bookInfo, setBookInfo] = useState({});
 
+	const [pass, setPass] = useState(JSON.parse(localStorage.getItem('pass')))
+
 	function getSave() {
 		let obj = {
 			file,
@@ -103,6 +105,8 @@ const MainContext = ({ children }) => {
 		plusCount,
 		minusCount,
 		getOrder,
+
+		pass, setPass,
 	};
 
 	return <mainContext.Provider value={values}>{children}</mainContext.Provider>;
