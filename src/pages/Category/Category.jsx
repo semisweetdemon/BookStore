@@ -3,8 +3,8 @@ import { useMainContext } from '../../mainContext/MainContext';
 import { useState, useEffect } from 'react';
 import BooksBlock from '../../components/BooksBlock/BooksBlock';
 
-const Category = (e) => {
-	let booker = JSON.parse(localStorage.getItem('categorieSort')) || 'categories';
+const Category = () => {
+	let booker = JSON.parse(localStorage.getItem('categorieSort')) || 'Сортировка';
 	const { open, setOpen, navigate } = useMainContext();
 	const [genre, setGenre] = useState(booker);
 	const [categories, setCategories] = useState([]);
@@ -17,8 +17,14 @@ const Category = (e) => {
 	}, [genre]);
 
 	let data = JSON.parse(localStorage.getItem('book')) || [];
+	let filterBook;
 
-	let filterBook = data.filter((el) => el.category === genre);
+	if (genre === 'Сортировка') {
+		filterBook = data;
+	} else {
+		filterBook = data?.filter((el) => el.category === genre);
+	}
+
 	function getCategories() {
 		setCategories(cate);
 	}

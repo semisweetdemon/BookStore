@@ -4,8 +4,16 @@
   align-items: center;
   gap: 1.5rem;
   .nav__category {
-    height: 240px;
+    width: 250px;
+    height: 200px;
+    background-color: #010049;
     position: relative;
+    cursor: pointer;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 25px;
+
 
     &_image {
       position: relative;
@@ -26,6 +34,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      font-size: 20px;
       position: absolute;
       bottom: 25px;
       left: 25px;
