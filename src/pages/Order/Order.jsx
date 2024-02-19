@@ -2,42 +2,16 @@ import { useMainContext } from '../../mainContext/MainContext';
 import { useEffect, useState } from 'react';
 
 const Order = () => {
-	const { navigate } = useMainContext();
-
-	const [order, setOrder] = useState([]);
-	const [delivery, setDelivery] = useState(false);
+	const { navigate, minusCount, plusCount, order, setOrder, delivery, setDelivery } = useMainContext();
 
 	function getBasket() {
-		let ord = JSON.parse(localStorage.getItem('order')) || [];
-		setOrder(ord);
-	}
-
-	function minusCount(id) {
-		let data = JSON.parse(localStorage.getItem('order')) || [];
-		data.map((el) => {
-			if (el.id === id) {
-				return el.count <= 0 ? 0 : (el.count -= 1);
-			}
-		});
-		setOrder(data);
-
-		localStorage.setItem('order', JSON.stringify(data));
-	}
-
-	function plusCount(id) {
-		let data = JSON.parse(localStorage.getItem('order')) || [];
-		data.map((el) => {
-			if (el.id === id) {
-				el.count += 1;
-			}
-		});
-		setOrder(data);
-		localStorage.setItem('order', JSON.stringify(data));
+		let ord = JSON.parse(localStorage.getItem('book')) || [];
+		setOrder(ord.filter((el) => el.order === true));
 	}
 
 	useEffect(() => {
 		getBasket();
-	}, []);
+	}, [order]);
 
 	return (
 		<section id="order">
@@ -82,7 +56,7 @@ const Order = () => {
 								onClick={() => {
 									setDelivery(false);
 								}}>
-								<input checked type="radio" id="kurer" name="dos" />
+								<input type="radio" id="kurer" name="dos" />
 								Доставка курьером
 							</label>
 							<select
@@ -148,10 +122,15 @@ const Order = () => {
 										</div>
 										<h3
 											onClick={() => {
-												let deleteOrder = JSON.parse(localStorage.getItem('order')) || [];
-												deleteOrder = deleteOrder.filter((elem) => elem.id !== el.id);
-												setOrder(deleteOrder);
-												localStorage.setItem('order', JSON.stringify(deleteOrder));
+												let deleteOrder = JSON.parse(localStorage.getItem('book')) || [];
+												deleteOrder.map((elem) => {
+													if (elem.id === el.id) {
+														elem.count = 1;
+														elem.order = false;
+													}
+													return elem;
+												});
+												localStorage.setItem('book', JSON.stringify(deleteOrder));
 											}}>
 											Удалить <ion-icon name="trash-outline"></ion-icon>
 										</h3>

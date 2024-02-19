@@ -1,36 +1,26 @@
-import CategoryBlock from '../../components/CategoryBlock/CategoryBlock';
+import { useState, useEffect, useRef } from 'react';
 import { useMainContext } from '../../mainContext/MainContext';
-import { useState, useEffect } from 'react';
+import CategoryBlock from '../../components/CategoryBlock/CategoryBlock';
 import BooksBlock from '../../components/BooksBlock/BooksBlock';
 
 const Category = () => {
-	let booker = JSON.parse(localStorage.getItem('categorieSort')) || 'Сортировка';
-	const { open, setOpen, navigate } = useMainContext();
-	const [genre, setGenre] = useState(booker);
+	const { setHome, navigate } = useMainContext();
+	const [genre, setGenre] = useState(JSON.parse(localStorage.getItem('categorieSort')) || 'Сортировка');
 	const [categories, setCategories] = useState([]);
 
 	const cate = JSON.parse(localStorage.getItem('category')) || [];
 
 	useEffect(() => {
-		booker = genre;
-		localStorage.setItem('categorieSort', JSON.stringify(booker));
+		localStorage.setItem('categorieSort', JSON.stringify(genre));
+		let booker = JSON.parse(localStorage.getItem('categorieSort')) || 'Сортировка';
+		setGenre(booker);
 	}, [genre]);
 
-	let data = JSON.parse(localStorage.getItem('book')) || [];
-	let filterBook;
-
-	if (genre === 'Сортировка') {
-		filterBook = data;
-	} else {
-		filterBook = data?.filter((el) => el.category === genre);
-	}
-
-	function getCategories() {
-		setCategories(cate);
-	}
 	useEffect(() => {
-		getCategories();
+		setCategories(cate);
+		setHome(true);
 	}, []);
+	useEffect(() => {});
 
 	return (
 		<section id="category">
@@ -48,16 +38,18 @@ const Category = () => {
 							</p>
 							<span>{genre}</span>
 						</div>
-						<select onChange={(e) => setGenre(e.target.value)}>
-							<option value="Сортировка" selected>
-								Сортировка
-							</option>
+						<select
+							onChange={(e) => {
+								setGenre(e.target.value);
+							}}
+							value={genre}>
+							<option>Сортировка</option>
 							{categories.map((el) => (
 								<option>{el}</option>
 							))}
 						</select>
 					</div>
-					<BooksBlock flBook={filterBook} />
+					<BooksBlock />
 				</div>
 			</div>
 		</section>

@@ -1,22 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useMainContext } from '../../mainContext/MainContext';
 
-const BooksBlock = ({ flBook }) => {
-	const { navigate, setIdBook } = useMainContext();
-	const [books, setBooks] = useState();
-
-	function gtBooks() {
-		let book = JSON.parse(localStorage.getItem('book')) || [];
-		setBooks(book);
-	}
+const BooksBlock = () => {
+	const { navigate, setIdBook, books, check } = useMainContext();
 
 	useEffect(() => {
-		if (flBook) {
-			setBooks(flBook);
-		} else {
-			gtBooks();
-		}
-	}, []);
+		check();
+	}, [books]);
 
 	return (
 		<div className="booksbl">

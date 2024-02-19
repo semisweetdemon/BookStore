@@ -2,16 +2,17 @@ import { useEffect } from 'react';
 import { useMainContext } from '../../mainContext/MainContext';
 
 const Book = () => {
-	const { bookInfo, setBookInfo, idBook, navigate, plusCount, minusCount, getOrder } = useMainContext();
+	const { bookInfo, setBookInfo, idBook, navigate, plusCount, minusCount } = useMainContext();
 
 	function getItem(n) {
 		let data = JSON.parse(localStorage.getItem('book')) || [];
-		setBookInfo(data.find((el) => el.id === n));
+		let k = data.find((el) => el.id === n);
+		setBookInfo(k);
 	}
 
 	useEffect(() => {
 		getItem(idBook);
-	});
+	}, [idBook]);
 
 	return (
 		<section id="book">
@@ -25,7 +26,13 @@ const Book = () => {
 							Главная
 						</p>
 						<p>/</p>
-						<p>{bookInfo.category}</p>
+						<p
+							onClick={() => {
+								navigate('/category');
+								localStorage.setItem('categorieSort', JSON.stringify(bookInfo.category));
+							}}>
+							{bookInfo.category}
+						</p>
 						<p>/</p>
 						<p>{bookInfo.name}</p>
 					</div>
@@ -40,6 +47,7 @@ const Book = () => {
 									<button
 										onClick={() => {
 											minusCount(bookInfo.id);
+											getItem(idBook);
 										}}>
 										-
 									</button>
@@ -47,6 +55,7 @@ const Book = () => {
 									<button
 										onClick={() => {
 											plusCount(bookInfo.id);
+											getItem(idBook);
 										}}>
 										+
 									</button>
@@ -59,7 +68,17 @@ const Book = () => {
 							<div className="info__buttons">
 								<button
 									onClick={() => {
-										getOrder(bookInfo);
+										let order = JSON.parse(localStorage.getItem('book')) || [];
+										order.map((el) => {
+											if (el.id === bookInfo.id) {
+												if (el.order === true) {
+													el.count += 1;
+												} else {
+													el.order = true;
+												}
+											}
+										});
+										localStorage.setItem('book', JSON.stringify(order));
 									}}>
 									Добавить в корзину
 								</button>

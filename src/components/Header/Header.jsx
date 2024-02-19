@@ -1,8 +1,21 @@
 import { NavLink } from 'react-router-dom';
 import { useMainContext } from '../../mainContext/MainContext';
+import { useEffect, useState } from 'react';
 
 const Header = () => {
-	const { navigate, setOpen } = useMainContext();
+	const { navigate, setOpen, search, setSearch } = useMainContext();
+
+	function check() {
+		if (search !== '') {
+			navigate('/search');
+		} else {
+			navigate('/');
+		}
+	}
+
+	useEffect(() => {
+		check();
+	}, [search]);
 
 	return (
 		<header id="header">
@@ -16,9 +29,8 @@ const Header = () => {
 						<h3>BOOKShop</h3>
 					</div>
 					<div className="header__nav">
-						<input type="text" placeholder="Search here" />
+						<input onChange={(e) => setSearch(e.target.value.toLowerCase())} type="text" placeholder="Search here" />
 						<nav>
-							<NavLink to='/category'>Category</NavLink>
 							<NavLink to="/order">
 								<ion-icon name="cart-outline"></ion-icon>
 								<p>Корзина</p>

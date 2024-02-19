@@ -5,6 +5,7 @@ import Book from '../pages/Book/Book';
 import Category from '../pages/Category/Category';
 import Hero from '../pages/Hero/Hero';
 import { useMainContext } from '../mainContext/MainContext';
+import Search from '../pages/Search/Search';
 
 const MainRouter = () => {
 	const { idBook } = useMainContext();
@@ -15,6 +16,7 @@ const MainRouter = () => {
 		{ path: '/order', element: <Order />, key: 3 },
 		{ path: `/${idBook}`, element: <Book />, key: 4 },
 		{ path: '/category', element: <Category />, key: 5 },
+		{ path: '/search', element: <Search />, key: 6 },
 	];
 
 	return (

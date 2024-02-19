@@ -4,7 +4,7 @@ import { useMainContext } from '../../mainContext/MainContext';
 import CategoryBlock from '../../components/CategoryBlock/CategoryBlock';
 
 const Hero = () => {
-	const { navigate, open, setOpen } = useMainContext();
+	const { navigate, setHome } = useMainContext();
 	const [count, setCount] = useState(0);
 	let swiperImages = ['https://images.unsplash.com/photo-1707345512638-997d31a10eaa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'];
 
@@ -25,6 +25,8 @@ const Hero = () => {
 				className={count === i ? 'swiper__pagination_dot dotnogray' : 'swiper__pagination_dot'}></div>
 		);
 	}
+
+	setHome(false);
 
 	return (
 		<>
@@ -61,7 +63,12 @@ const Hero = () => {
 				<div className="container">
 					<div className="herocategory">
 						<div className="herocategory__title title">
-							<h2 onClick={() => navigate('/category')} style={{ cursor: 'pointer' }}>
+							<h2
+								onClick={() => {
+									navigate('/category');
+									localStorage.setItem('categorieSort', JSON.stringify('Сортировка'));
+								}}
+								style={{ cursor: 'pointer' }}>
 								Категории
 							</h2>
 						</div>
