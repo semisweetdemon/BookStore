@@ -36,7 +36,7 @@ const Category = (e) => {
     <section id="category">
       <div className="container">
         <div className="category">
-          {/* <CategoryBlock /> */}
+			{/* <CategoryBlock/> */}
           <div className="category-nav">
             <div className="category-nav__navlist">
               <p
@@ -66,3 +66,8 @@ const Category = (e) => {
 };
 
 export default Category;
+
+
+
+// zapros,put get delete 
+// run out
