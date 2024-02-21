@@ -1,3 +1,4 @@
+import localforage from 'localforage';
 import { createContext, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -25,6 +26,7 @@ const MainContext = ({ children }) => {
 	const [pass, setPass] = useState(JSON.parse(localStorage.getItem('pass')));
 
 	function getSave() {
+		let time = Date.now();
 		let obj = {
 			file,
 			name,
@@ -32,7 +34,7 @@ const MainContext = ({ children }) => {
 			price,
 			discription,
 			count: 1,
-			id: Date.now(),
+			id: time,
 			order: false,
 		};
 		const book = JSON.parse(localStorage.getItem('category')) || [];
@@ -43,6 +45,15 @@ const MainContext = ({ children }) => {
 		const data = JSON.parse(localStorage.getItem('book')) || [];
 		data.push(obj);
 		localStorage.setItem('book', JSON.stringify(data));
+
+		localforage
+			.setItem(`${time}`, file)
+			.then(function (value) {
+				console.log(value);
+			})
+			.catch(function (err) {
+				console.log(err);
+			});
 
 		setFile('');
 		setName('');

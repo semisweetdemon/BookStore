@@ -10,7 +10,7 @@ const Admin = () => {
 			setFile(URL.createObjectURL(files));
 		}
 	}
-	console.log('file', file);
+	console.log(file);
 
 	return (
 		<section id="admin">

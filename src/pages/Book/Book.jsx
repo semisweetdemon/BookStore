@@ -1,13 +1,25 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useMainContext } from '../../mainContext/MainContext';
+import localforage from 'localforage';
 
 const Book = () => {
 	const { bookInfo, setBookInfo, idBook, navigate, plusCount, minusCount } = useMainContext();
+
+	const [imageBook, setImageBook] = useState(0);
 
 	function getItem(n) {
 		let data = JSON.parse(localStorage.getItem('book')) || [];
 		let k = data.find((el) => el.id === n);
 		setBookInfo(k);
+		localforage
+			.getItem(`${n}`)
+			.then(function (value) {
+				setImageBook(value);
+				console.log(value);
+			})
+			.catch(function (err) {
+				console.log(err);
+			});
 	}
 
 	useEffect(() => {
@@ -37,7 +49,9 @@ const Book = () => {
 						<p>{bookInfo.name}</p>
 					</div>
 					<div className="book__info">
-						<div className="book__boba"></div>
+						<div className="book__boba">
+							<img src={imageBook} alt="" />
+						</div>
 						<div className="info">
 							<div>
 								<h3 className="info__title">{bookInfo.name}</h3>

@@ -18,9 +18,9 @@ const Category = () => {
 
 	useEffect(() => {
 		setCategories(cate);
-		setHome(true);
 	}, []);
-	useEffect(() => {});
+
+	setHome(true);
 
 	return (
 		<section id="category">

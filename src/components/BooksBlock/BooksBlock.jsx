@@ -6,7 +6,7 @@ const BooksBlock = () => {
 
 	useEffect(() => {
 		check();
-	}, [books]);
+	}, []);
 
 	return (
 		<div className="booksbl">
